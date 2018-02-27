@@ -29,7 +29,7 @@ composer update
 ```
 
 ## **在线演示**
-/admin/
+[ip/localhost]/admin/
 
 用户名：admin
 密　码：123456
