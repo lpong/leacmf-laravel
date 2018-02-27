@@ -25,7 +25,7 @@
             <td>{{ $vo['remark'] }}</td>
             <td>
                 <a href="{{ route('edit-role',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改">修改</a>
-                <a href="{{ route('assign-permission',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="权限">权限</a>
+                <a href="{{ route('assign-permission',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal" title="权限">权限</a>
                 <a href="{{ route('delete-role',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-get">删除</a>
             </td>
         </tr>

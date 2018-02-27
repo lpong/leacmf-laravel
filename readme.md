@@ -46,8 +46,6 @@ composer update
 ![2](/public/2.png "2")
 ![3](/public/3.png "3")
 ![4](/public/4.png "4")
-![4](/public/5.png "5")
-![4](/public/6.png "6")
 
 ## **特别鸣谢**
 

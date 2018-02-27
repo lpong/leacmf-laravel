@@ -41,7 +41,11 @@ class Admin extends Authenticatable
             redirect(route('/'));
         }
         //自己
-        $self = Permission::where(['name' => Route::currentRouteName()])->first()->toArray();
+        $self = Permission::where(['name' => Route::currentRouteName()])->first();
+        if ($self) {
+            $self = $self->toArray();
+        }
+
         //当前用户含有权限的菜单
 
         $rules = cache('sys:rule:' . $this->id);
@@ -73,14 +77,18 @@ class Admin extends Authenticatable
             cache(['sys:menu:' . $this->id => $menu], env('APP_ENV') == 'local' ? 1 : 600);
         }
         //面包屑
-        $crumb      = Tree::getParents($rules, $self['id']);
-        $parent_ids = [$self['id']];
+        $crumb = Tree::getParents($rules, $self['id']);
+
+        $parent_ids = [];
+        if ($self) {
+            array_push($parent_ids, $self['id']);
+        }
+
         if ($crumb) {
             foreach ($crumb as $val) {
                 array_push($parent_ids, $val['id']);
             }
         }
-
         return compact('self', 'menu', 'crumb', 'parent_ids');
     }
 }
