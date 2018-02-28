@@ -1,12 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: lea
- * Date: 2018/1/18
- * Time: 14:02
- */
-
-/**
  * 后台管理
  */
 
