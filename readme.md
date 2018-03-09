@@ -1,6 +1,8 @@
 leacmf是一款基于Laravel5.5+layui开发的极速App后台开发框架。
 ===============
 
+thinkphp版本进 https://github.com/lea21st/leacmf-thinkphp
+
 ## **主要特性**
 
 * 后台RBAC权限管理系统
