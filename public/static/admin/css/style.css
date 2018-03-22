@@ -174,7 +174,9 @@ body {
     font-size: 18px;
     font-family: PingFang SC, \5FAE\8F6F\96C5\9ED1, Tahoma, Arial, sans-serif
 }
-
+.layui-layout-admin .layui-header{
+    z-index: none
+}
 .layui-layout-admin .layui-logo,
 .layui-layout-admin .layui-header .layui-nav .layui-nav-item {
     height: 50px;
@@ -187,7 +189,7 @@ body {
 }
 
 .layui-layout-admin .layui-header .layui-nav-child {
-    top: 55px
+    top: 55px;
 }
 
 .layui-header .layui-nav-bar,
@@ -203,7 +205,7 @@ body {
     transition: left .3s
 }
 
-.layui-layout-admin[layui-layout="closed"] .layui-body {
+.layui-layout-admin[layui-layout="closed"] .main {
     left: 0;
     bottom: 0;
     top: 50px;
@@ -330,6 +332,20 @@ body {
     color: #fff
 }
 
+.main {
+    position: absolute;
+    left: 220px;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+    width: auto;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    -webkit-transition: left .3s;
+    transition: left .3s;
+}
+
 .main .main-header {
     line-height: 40px;
     height: 40px;
@@ -359,8 +375,8 @@ body {
 }
 
 .main .main-content {
-    min-height: 90%;
-    min-height: calc(100% - 82px);
+    min-height: 100%;
+    min-height: calc(100% - 40px);
     padding: 12px 0;
     box-sizing: border-box
 }
@@ -375,7 +391,8 @@ body {
 
 .inline-form {
     display: inline-block;
-    width: 100%
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .text-left {
@@ -435,14 +452,20 @@ body {
     text-align: center;
     padding: 0
 }
-.data-list .layui-inline .layui-input.layui-unselect{
-    width: 100px;
+
+.data-list .layui-inline .layui-input.layui-unselect {
+    width: 140px;
     text-align: left;
     padding-left: 10px;
 }
 
 .data-list .layui-inline .layui-form-select dl {
     top: 29px
+}
+
+.data-list .data {
+    min-height: .01%;
+    overflow-x: auto;
 }
 
 .layui-table th {
@@ -467,28 +490,12 @@ body {
     font-size: 12px
 }
 
-.text-red {
-    color: #FF5722
+.text-1 {
+    color: #f39c12;
 }
 
-.text-orange {
-    color: #FFB800
-}
-
-.text-green {
-    color: #009688
-}
-
-.text-cyan {
-    color: #2F4056
-}
-
-.text-blue {
-    color: #1E9FFF
-}
-
-.text-black {
-    color: #393D49
+.text-0 {
+    color: #777;
 }
 
 .layui-form-select dl dd.layui-this {
@@ -557,7 +564,8 @@ body {
 }
 
 .avatar-add .img img {
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 
 .avatar-add .loading {
@@ -584,4 +592,7 @@ body {
     font-size: 12px;
     text-align: center;
     color: #999
+}
+.layui-layer .layui-container{
+    padding: 5px 15px;
 }

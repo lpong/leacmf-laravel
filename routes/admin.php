@@ -14,7 +14,8 @@ Route::any('logout', function () {
 /**
  * 首页，控制台
  */
-Route::any('/', 'IndexController@index')->name('/');
+Route::any('', 'IndexController@index')->name('/');
+Route::any('flush', 'IndexController@flush')->name('flush');
 Route::any('flexible', 'IndexController@flexible')->name('flexible');
 
 /**

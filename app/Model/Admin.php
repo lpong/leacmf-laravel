@@ -78,7 +78,7 @@ class Admin extends Authenticatable
         }
         //面包屑
         $crumb = Tree::getParents($rules, $self['id']);
-
+        array_pop($crumb);
         $parent_ids = [];
         if ($self) {
             array_push($parent_ids, $self['id']);

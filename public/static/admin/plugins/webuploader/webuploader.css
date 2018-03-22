@@ -1,28 +1,175 @@
 .webuploader-container {
-	position: relative;
+    position: relative;
 }
+
 .webuploader-element-invisible {
-	position: absolute !important;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px,1px,1px,1px);
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
 }
+
 .webuploader-pick {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-	background: #00b7ee;
-	padding: 6px 8px;
-	color: #fff;
-	text-align: center;
-	border-radius: 3px;
-	overflow: hidden;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: #1E9FFF;
+    padding: 4px 8px;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    overflow: hidden;
 }
+
 .webuploader-pick-hover {
-	background: #00a2d4;
+    background: #00a2d4;
 }
 
 .webuploader-pick-disable {
-	opacity: 0.6;
-	pointer-events:none;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
+
+.uploader-list>.file {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.uploader-list {
+    width: 100%;
+    overflow: hidden;
+}
+
+.file-item {
+    float: left;
+    position: relative;
+    padding: 4px;
+}
+
+.file-item .error {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    background: red;
+    color: white;
+    text-align: center;
+    height: 20px;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.file-item .info {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    right: 4px;
+    height: 20px;
+    line-height: 20px;
+    text-indent: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.upload-state-done:after {
+    content: "\f00c";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 32px;
+    position: absolute;
+    bottom: 0;
+    right: 4px;
+    color: #4cae4c;
+    z-index: 99;
+}
+
+.file-item .progress {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    height: 3px;
+    left: 4px;
+    height: 4px;
+    overflow: hidden;
+    z-index: 15;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.file-item .progress span {
+    display: block;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    background: #d14 url(progress.png) repeat-x;
+    -webit-transition: width 200ms linear;
+    -moz-transition: width 200ms linear;
+    -o-transition: width 200ms linear;
+    -ms-transition: width 200ms linear;
+    transition: width 200ms linear;
+    -webkit-animation: progressmove 2s linear infinite;
+    -moz-animation: progressmove 2s linear infinite;
+    -o-animation: progressmove 2s linear infinite;
+    -ms-animation: progressmove 2s linear infinite;
+    animation: progressmove 2s linear infinite;
+    -webkit-transform: translateZ(0);
+}
+
+.file-item .delete {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    padding: 0;
+    line-height: 0;
+}
+
+.file-item .delete a {
+    font-size: 24px;
+    color: red;
+}
+
+@-webkit-keyframes progressmove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 17px 0;
+    }
+}
+
+@-moz-keyframes progressmove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 17px 0;
+    }
+}
+
+@keyframes progressmove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 17px 0;
+    }
+}
+
+a.travis {
+    position: relative;
+    top: -4px;
+    right: 15px;
+}

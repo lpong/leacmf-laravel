@@ -1,16 +1,15 @@
 .edui-container{
     position: relative;
     border: 1px solid #e6e6e6;
-    box-shadow: 2px 2px 5px #d3d6da;
     background-color: #fff;
+    border-radius: 2px;
 }
 .edui-container .edui-toolbar{
     position: relative;
     width:auto;
-    border-bottom: 1px solid #e1e1e1;
-    box-shadow: 2px 2px 5px #d3d6da;
+    border-bottom: 1px solid #eee;
     background-color: #fafafa;
-    z-index: 999999999;
+    z-index: 99999;
 }
 .edui-toolbar .edui-btn-toolbar{
     position: relative;
@@ -18,10 +17,13 @@
 }
 .edui-container .edui-editor-body{
     background-color: #fff;
+    padding: 4px;
 }
 .edui-editor-body .edui-body-container{
 }
-
+.edui-map-dynamic{
+    display: inline-block!important;
+}   
 .edui-editor-body .edui-body-container p{margin:5px 0;}
 .edui-editor-body .edui-body-container{
     border:0;
@@ -36,7 +38,7 @@
 }
 .edui-editor-body.focus{border:1px solid #5c9dff}
 .edui-editor-body table{margin:10px 0 10px;border-collapse:collapse;display:table;}
-.edui-editor-body td{padding: 5px 10px;border: 1px solid #DDD;}
+.edui-editor-body td{padding: 5px 10px;border: 1px solid #e6e6e6;}
 .edui-editor-body iframe.mathquill-embedded-latex{
     border: 0px;
     padding: 0px;
@@ -263,13 +265,13 @@
 .edui-combobox .edui-button-label{
     position: relative;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     *display: inline ;
     *zoom:1;
     width:60px;
     height:20px;
     line-height: 20px;
-    padding: 2px;
+    padding: 0 2px;
     margin: 0;
     font-size: 12px;
     text-align: center;
@@ -319,9 +321,8 @@
     background-color: #ffffff;
     border: 1px solid #ccc;
     font-size: 12px;
-    box-shadow: 2px 2px 5px #d3d6da;
-    min-width: 160px;
-    _width: 160px;
+    min-width: 120px;
+    _width: 120px;
 }
 
 .edui-combobox-menu .edui-combobox-item {
@@ -626,7 +627,7 @@
 .edui-tab-nav {
     margin: 0;
     padding:0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e6e6e6;
     list-style: none;
     height:30px;
 }
@@ -638,7 +639,7 @@
 }
 .edui-tab-nav .edui-tab-item .edui-tab-text{
     display: block;
-    padding:8px 12px;
+    padding:2px 12px;
     border: 1px solid transparent;
     color: #0088cc;
     text-decoration: none;
@@ -650,10 +651,10 @@
     outline: none;
 }
 .edui-tab-nav .edui-tab-item.edui-active  .edui-tab-text{
-    border: 1px solid #ddd;
+    border: 1px solid #e6e6e6;
     border-bottom-color: transparent;
     background-color: #fff;
-    padding:8px 12px;
+    padding:2px 12px;
     color: #555555;
     cursor: default;
 }

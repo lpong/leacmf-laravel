@@ -1,7 +1,5 @@
-layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports) {
+layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
     var layer = layui.layer,
-        element = layui.element,
-        table = layui.table,
         laydate = layui.laydate,
         form = layui.form,
         $ = layui.$;
@@ -22,7 +20,8 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
 
     //全局方法
     $.ajaxSetup({
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        cache: true
     });
     $(document).ajaxError(function(event, xhr) {
         if (xhr.status == 422) {
@@ -66,10 +65,12 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
         var url = that.data('url') || window.location.href;
         var param = that.find('form').serialize();
         var page = that.data('page') || 1;
+        var temp = layui.data('leacmf');
+        var limit = that.data('limit') || temp.limit || 20;
         if (resetPage) {
             page = 1;
         }
-        param = 'page=' + page + '&' + param;
+        param = 'limit=' + limit + '&page=' + page + '&' + param;
         $.ajax({
                 url: url,
                 type: 'POST',
@@ -118,7 +119,6 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
     });
     //分页跳转
     $(document).on('click', '.layui-laypage-page .layui-laypage-btn', function() {
-        var dom = $(this).closest('.data-list');
         var input = $(this).prev('input');
         var page = input.val();
         if (!page) {
@@ -129,19 +129,29 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
             layer.msg('页码范围为' + input.attr('min') + '~' + input.attr('max'));
             return false;
         }
-        $(this).closest('.data-list').data('page', page).getList(href);
+        $(this).closest('.data-list').data('page', page).getList();
         return false;
+    });
+    //分页数量
+    $(document).on('change', '.layui-laypage-page>.layui-laypage-limits select', function() {
+        var limit = $(this).val() || 20;
+        layui.data('leacmf', {
+            key: 'limit',
+            value: limit
+        });
+        $(this).closest('.data-list').data('limit', limit).getList();
+        return;
     });
 
     //快速排序
-    $(document).on('change', '.data-list .layui-input', function(event) {
+    $(document).on('change', '.data-list .input-sort', function(event) {
         event.preventDefault();
         var self = $(this);
         var url = self.attr('href') || self.data('url');
         if (self.val() != self.attr('data-val')) {
-            $.get(url, self.serialize(), function(res) {
-                if (res.code != 1) {
-                    layer.msg(lea2msg(lea.msg(res.msg)));
+            $.post(url, self.serialize(), function(res) {
+                if (res.code != 0) {
+                    layer.msg(lea.msg(res.msg));
                     self.closest('.data-list').getList();
                 } else {
                     self.attr('data-val', self.val());
@@ -170,8 +180,8 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
                 type: 1,
                 title: self.attr('title'),
                 content: html,
-                scrollbar: false,
-                maxWidth: '80%',
+                scrollbar: true,
+                maxWidth:'90%',
                 btn: ['确定', '取消'],
                 yes: function(index, layero) {
                     if ($(layero).find('.layui-layer-btn0').attr('disabled')) {
@@ -216,7 +226,7 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
      * 异步url请求
      * 用户简单操作，如删除
      */
-    $(document).on('click', '.ajax-get', function(event) {
+    $(document).on('click', '.ajax-post', function(event) {
         event.preventDefault();
         var self = $(this);
         var url = self.attr('href') || self.data('url');
@@ -225,44 +235,76 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
 
         if (self.attr('confirm')) {
             layer.confirm('您确定要 <span style="color:#f56954">' + title + '</span> 吗？', function(index) {
-                $.get(url, function(res) {
+                $.post(url, function(res) {
                     layer.msg(lea.msg(res.msg));
                     self.closest('.data-list').getList();
                 });
             });
 
         } else {
-            $.get(url, function(res) {
+            $.post(url, function(res) {
                 var message = self.attr('msg') || 1;
-                if (res.code == 0 || message == 1) {
+                if (res.code == 1 || message == 1) {
                     layer.msg(lea.msg(res.msg));
                 }
-                self.closest('.data-list').getList();
+                if (self.closest('.data-list').length) {
+                    self.closest('.data-list').getList();
+                }
+
             });
         }
         return false;
     })
 
+    //ajax-show
+    $(document).on('click', '.ajax-show', function(event) {
+        event.preventDefault();
+        var self = $(this);
+        var url = self.attr('href') || self.data('url');
+        var title = self.attr('data-title') || self.attr('title') || false;
+        $.get(url, function(data) {
+            if (typeof data.code !== 'undefined' && data.code == 1) {
+                layer.msg(data.msg);
+                return false;
+            }
+            layer.open({
+                type: 1,
+                title: title,
+                shade: 0.8,
+                area: ['85%', '95%'],
+                //id: 'ajax-show',
+                moveType: 1,
+                offset: '20px',
+                scrollbar: true,
+                content: data,
+                success: function(layero, index) {
+                    form.render();
+                }
+            });
+        });
+        return false;
+    });
+
 
     //监听table swtich操作
     form.on('switch(table-status)', function(obj) {
         var self = $(obj.elem);
-        var table = self.closest('.data-table').data('id');
+        var value = obj.elem.checked ? 1 : 0;
         $.ajax({
                 url: self.data('href'),
                 type: 'post',
-                dataType: 'json'
+                dataType: 'json',
+                data: { status: value }
             })
             .done(function(data) {
                 if (data.code != 0) {
                     layer.msg(data.msg);
-                    $(table).reload();
+                    self.closest('.data-list').getList();
                 }
             })
             .fail(function(xhr) {
                 layer.msg('服务器异常，请稍后重试~');
-                console.log(xhr.responseText);
-                $(table).reload();
+                self.closest('.data-list').getList();
             });
     });
 
@@ -333,6 +375,10 @@ layui.define(['layer', 'form', 'element', 'table', 'laydate'], function(exports)
                 }
             });
         });
+    });
+
+    $(document).on('dblclick', '.layui-tab-title>li', function() {
+        $(this).closest('.layui-tab').find('.layui-show').find('.data-list').getList();
     });
     //输出test接口
     exports('lea', lea);
