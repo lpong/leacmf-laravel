@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class Sms
 {
-    const URL = 'http://api.zthysms.com/sendSms.do';
 
     //发送短信验证码
     public static function sendCode($mobile, $type = 'login')
@@ -65,36 +64,8 @@ class Sms
 
     public static function send($mobile, $content)
     {
-        $tKey      = date('YmdHis');
-        $config    = config('param.sms');
-        $post_data = [
-            "username" => $config['account'],
-            "password" => md5(md5($config['password']) . $tKey),
-            'tkey'     => $tKey,
-            "mobile"   => $mobile,
-            "content"  => $config['prefix'] . $content . $config['suffix'],
-            "action"   => 'send',
-        ];
+        //这儿推送
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, self::URL);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_SSLVERSION, 3);
-        // post数据
-        curl_setopt($ch, CURLOPT_POST, 1);
-        // post的变量
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
-
-        $output = curl_exec($ch);
-        curl_close($ch);
-
-        list($code, $message) = explode(',', $output);
-        if ($code == 1) {
-            return true;
-        }
-        return empty($message) ? '发送失败' : $message;
     }
 
 }

@@ -29,36 +29,8 @@ class PublicController extends Controller
             'sign'     => 'required|alpha_num|size:40',
             'rand_str' => 'required|alpha_num|size:32'
         ]);
-        extract($post);
-        if ($validator->fails()) {
-            return Y::json($validator->errors());
-        }
 
-        $cache_key = md5($rand_str);
-        if (Cache::get($cache_key)) {
-            return Y::json(1003, '令牌错误');
-        }
-        if (sha1(md5($mobile . $rand_str . date('Ymd'))) !== $sign) {
-            return Y::json(1003, '数据校验异常');
-        }
-
-        if ($mark == 'signUp' || $mark == 'editMobile') {
-            //判断该用户是否已注册
-            if (User::where('mobile', $mobile)->first()) {
-                return Y::json(1101, '该手机号已注册');
-            }
-        }
-        if ($mark == 'forgetPassword') {
-            //判断该用户是否已注册
-            if (!User::where('mobile', $mobile)->first()) {
-                return Y::json(1101, '手机号未注册');
-            }
-        }
-        $result = Sms::sendCode($mobile, $mark);
-        if ($result !== true) {
-            return Y::json(1112, $result);
-        }
-        cache()->set($cache_key, time(), 7 * 24 * 3600);
+        //这儿写逻辑
         return Y::json('发送成功');
     }
 }
