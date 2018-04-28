@@ -92,14 +92,16 @@
             </div>
         </div>
         <div class="main-content">
-            <div class="layui-fluid" style="padding: 0 12px;">
-                <div class="layui-card">
-                    <div class="layui-card-header">{{ $__NAV__['self']['title'] }}</div>
-                    <div class="layui-card-body">
-                        @yield('content')
+            @section('main')
+                <div class="layui-fluid" style="padding: 0 12px;">
+                    <div class="layui-card">
+                        <div class="layui-card-header">{{ $__NAV__['self']['title'] }}</div>
+                        <div class="layui-card-body">
+                            @yield('content')
+                        </div>
                     </div>
                 </div>
-            </div>
+            @show
         </div>
         <div class="main-footer">
             <!-- 底部固定区域 -->
