@@ -1,414 +1,348 @@
 ::-webkit-scrollbar-track {
-    border-radius: 12px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
-    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    border: 2px solid transparent;
+  border-radius: 999px;
+  border: 2px solid transparent;
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2) inset;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
 }
 
 ::-webkit-scrollbar-thumb {
-    min-height: 20px;
-    background-clip: content-box;
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, .2) inset;
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
 }
 
 ::-webkit-scrollbar-corner {
-    background: transparent;
+  background: transparent;
 }
 
-body {
-    background: #f2f2f2;
-    color: #333;
-    font-size: 13px
+body,
+html {
+  height: 100%;
+  min-height: 100%;
+  background: #f2f2f2;
+  color: #333;
+  font-size: 13px;
 }
 
 .layui-layout-body {
-    overflow: auto
+  overflow: auto;
 }
-
 .login {
-    position: relative;
-    left: 0;
-    top: 0;
-    padding: 110px 0;
-    min-height: 100%;
-    box-sizing: border-box
+  height: 100%;
+  min-height: 100%;
+  background-image: url(../img/login-bg.jpg);
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
 }
 
-.login-main {
-    width: 375px;
-    margin: 0 auto;
-    box-sizing: border-box
+.login .layui-card {
+  position: absolute;
+  right: 160px;
+  top: 50%;
+  -webkit-transform: translateY(-60%);
+  transform: translateY(-60%);
+  width: 360px;
 }
 
-.login-box {
-    padding: 20px
+.login .layui-form-label {
+  width: 90px;
 }
 
-.login-header {
-    text-align: center
+.login .layui-input-block {
+  margin-left: 90px;
 }
 
-.login-header h2 {
-    margin-bottom: 10px;
-    font-weight: 300;
-    font-size: 30px;
-    color: #000
+.login p {
+  text-align: center;
+  color: #bbb;
+  font-weight: 300;
+  font-size: 12px;
 }
 
-.login-header p {
-    font-weight: 300;
-    color: #999
-}
-
-.login-body .layui-form-item {
-    position: relative
-}
-
-.login-icon {
-    position: absolute;
-    left: 1px;
-    top: 1px;
-    width: 38px;
-    line-height: 36px;
-    text-align: center;
-    color: #d2d2d2
-}
-
-.login-body .layui-form-item .layui-input {
-    padding-left: 38px
-}
-
-.login-codeimg {
-    max-height: 38px;
-    width: 100%;
-    cursor: pointer;
-    box-sizing: border-box
-}
-
-.login-other {
-    position: relative;
-    font-size: 0;
-    line-height: 38px;
-    padding-top: 20px
-}
-
-.login-other>* {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    font-size: 14px
-}
-
-.login-other .layui-icon {
-    position: relative;
-    top: 2px;
-    font-size: 26px
-}
-
-.login-other a:hover {
-    opacity: 0.8
-}
-
-.layadmin-user-jump-change {
-    float: right
-}
-
-.login-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    line-height: 30px;
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    color: rgba(0, 0, 0, .5)
-}
-
-.login-footer span {
-    padding: 0 5px;
-    font-weight: 300;
-    color: rgba(0, 0, 0, .5)
+.login img {
+  height: 38px;
+  cursor: pointer;
 }
 
 .layui-layout-admin .layui-header {
-    height: 50px;
-    background: #1E9FFF
+  height: 50px;
+  background: #1e9fff;
 }
 
 .layui-layout-admin .layui-header .layui-nav .layui-nav-child a {
-    color: #333
+  color: #333;
 }
 
 .layui-layout-admin .layui-logo {
-    width: 220px;
-    padding: 0 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    font-weight: 200;
-    font-size: 18px;
-    font-family: PingFang SC, \5FAE\8F6F\96C5\9ED1, Tahoma, Arial, sans-serif
+  width: 220px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-weight: 200;
+  font-size: 18px;
+  font-family: PingFang SC, \5fae\8f6f\96c5\9ed1, Tahoma, Arial, sans-serif;
 }
-.layui-layout-admin .layui-header{
-    z-index: none
+.layui-layout-admin .layui-header {
+  z-index: none;
 }
 .layui-layout-admin .layui-logo,
 .layui-layout-admin .layui-header .layui-nav .layui-nav-item {
-    height: 50px;
-    line-height: 50px
+  height: 50px;
+  line-height: 50px;
 }
 
 .layui-layout-admin .layui-header .layui-nav .layui-nav-item {
-    transition: all .3s;
-    -webkit-transition: all .3s
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
 }
 
 .layui-layout-admin .layui-header .layui-nav-child {
-    top: 55px;
+  top: 55px;
 }
 
 .layui-header .layui-nav-bar,
 .layui-header .layui-nav-more {
-    display: none
+  display: none;
 }
 
 .layui-layout-admin .layui-body {
-    left: 220px;
-    bottom: 0;
-    top: 50px;
-    -webkit-transition: left .3s;
-    transition: left .3s
+  left: 220px;
+  bottom: 0;
+  top: 50px;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
 }
 
 .layui-layout-admin[layui-layout="closed"] .main {
-    left: 0;
-    bottom: 0;
-    top: 50px;
-    -webkit-transition: left .3s;
-    transition: left .3s
+  left: 0;
+  bottom: 0;
+  top: 50px;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
 }
 
 .layui-layout-admin .layui-header {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05)
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .layui-layout-admin .layui-logo {
-    background-color: rgba(255, 255, 255, .05);
-    box-shadow: 1px 0 2px 0 rgba(0, 0, 0, .05)
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .layui-layout-admin .layui-logo,
 .layui-layout-admin .layui-logo a {
-    color: #fff;
-    color: rgba(255, 255, 255, .7)
+  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .layui-side-child {
-    box-shadow: 1px 0 2px 0 rgba(0, 0, 0, .05)
+  box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .layui-layout-admin .layui-footer {
-    box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, .05)
+  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .aside {
-    position: fixed;
-    left: 0;
-    top: 50px;
-    bottom: 0;
-    width: 220px;
-    z-index: 120;
-    background: #222d32;
-    overflow-x: hidden;
-    -webkit-transition: left .3s;
-    transition: left .3s
+  position: fixed;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  width: 220px;
+  z-index: 120;
+  background: #222d32;
+  overflow-x: hidden;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
 }
 
 .layui-layout-admin[layui-layout="closed"] .aside {
-    left: -220px;
-    -webkit-transition: left .3s;
-    transition: left .3s
+  left: -220px;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
 }
 
 .aside .aside-scroll {
-    position: relative;
-    width: 240px;
-    height: 100%;
-    overflow-x: hidden
+  position: relative;
+  width: 240px;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 .aside .aside-nav {
-    width: 220px
+  width: 220px;
 }
 
-.aside .aside-nav li>a {
-    display: inline-block;
-    width: 100%;
-    height: 42px;
-    line-height: 42px;
-    font-size: 13px;
-    color: #b8c7ce;
-    padding: 0 20px 0 15px;
-    box-sizing: border-box;
-    border-left: 4px solid #222d32
+.aside .aside-nav li > a {
+  display: inline-block;
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  font-size: 13px;
+  color: #b8c7ce;
+  padding: 0 20px 0 15px;
+  box-sizing: border-box;
+  border-left: 4px solid #222d32;
 }
 
-.aside .aside-nav li>a.active,
-.aside .aside-nav li>a:hover {
-    color: #fff;
-    background: #1e282c;
-    border-left-color: #3c8dbc
+.aside .aside-nav li > a.active,
+.aside .aside-nav li > a:hover {
+  color: #fff;
+  background: #1e282c;
+  border-left-color: #3c8dbc;
 }
 
-.aside .aside-nav li>a>span>i {
-    float: right;
-    line-height: 42px;
-    font-size: 16px;
-    -webkit-transition: transform .5s ease;
-    -o-transition: transform .5s ease;
-    transition: transform .5s ease
+.aside .aside-nav li > a > span > i {
+  float: right;
+  line-height: 42px;
+  font-size: 16px;
+  -webkit-transition: transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
-.aside .aside-nav li>a.active>span>i {
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg)
+.aside .aside-nav li > a.active > span > i {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .aside .aside-nav li.title {
-    font-size: 12px;
-    height: 42px;
-    line-height: 42px;
-    color: #4b646f;
-    padding-left: 20px;
-    background: #1a2226
+  font-size: 12px;
+  height: 42px;
+  line-height: 42px;
+  color: #4b646f;
+  padding-left: 20px;
+  background: #1a2226;
 }
 
 .aside .aside-nav li dl {
-    margin: 0;
-    padding: 4px 0;
-    background: #2c3b41;
-    display: none
+  margin: 0;
+  padding: 4px 0;
+  background: #2c3b41;
+  display: none;
 }
 
-.aside .aside-nav li dl dd>a {
-    display: inline-block;
-    width: 100%;
-    font-size: 13px;
-    color: #b8c7ce;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 20px 0 25px
+.aside .aside-nav li dl dd > a {
+  display: inline-block;
+  width: 100%;
+  font-size: 13px;
+  color: #b8c7ce;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 20px 0 25px;
 }
 
-.aside .aside-nav li dl dd>a.active,
-.aside .aside-nav li dl dd>a:hover {
-    color: #fff
+.aside .aside-nav li dl dd > a.active,
+.aside .aside-nav li dl dd > a:hover {
+  color: #fff;
 }
 
 .main {
-    position: absolute;
-    left: 220px;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    width: auto;
-    overflow: hidden;
-    overflow-y: auto;
-    box-sizing: border-box;
-    -webkit-transition: left .3s;
-    transition: left .3s;
+  position: absolute;
+  left: 220px;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+  width: auto;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
 }
 
 .main .main-header {
-    line-height: 40px;
-    height: 40px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-bottom: 1px solid #e2e2e2;
-    background: #fff
+  line-height: 40px;
+  height: 40px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  background: #fff;
 }
 
 .main .main-header .layui-breadcrumb {
-    float: left;
-    font-size: 12px;
-    padding-right: 8px;
-    font-weight: 300
+  float: left;
+  font-size: 12px;
+  padding-right: 8px;
+  font-weight: 300;
 }
 
 .main .main-header .loadding {
-    font-size: 14px;
-    float: right;
-    width: 132px;
-    text-align: right
+  font-size: 14px;
+  float: right;
+  width: 132px;
+  text-align: right;
 }
 
 .main .main-header .loadding span {
-    display: none;
-    font-size: 12px
+  display: none;
+  font-size: 12px;
 }
 
 .main .main-content {
-    min-height: 100%;
-    min-height: calc(100% - 40px);
-    padding: 12px 0;
-    box-sizing: border-box
+  min-height: 100%;
+  min-height: calc(100% - 40px);
+  padding: 12px 0;
+  box-sizing: border-box;
 }
 
 .main .main-footer {
-    height: 40px;
-    line-height: 40px;
-    padding: 0 15px;
-    background-color: #eee;
-    font-weight: 300
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  background-color: #eee;
+  font-weight: 300;
 }
 
 .inline-form {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .text-left {
-    text-align: left
+  text-align: left;
 }
 
 .text-center {
-    text-align: center
+  text-align: center;
 }
 
 .text-right {
-    text-align: right
+  text-align: right;
 }
 
 .layui-table {
-    color: #333
+  color: #333;
 }
 
 .layui-table th,
@@ -421,7 +355,8 @@ body {
 .layui-table-page,
 .layui-table-fixed-r,
 .layui-table-tips-main {
-    border-color: #f6f6f6
+  border-color: #f6f6f6;
+  font-size: 13px;
 }
 
 .layui-table thead tr,
@@ -429,170 +364,170 @@ body {
 .layui-table-tool,
 .layui-table-patch,
 .layui-table-mend {
-    background-color: #fff
+  background-color: #fff;
 }
 
 .layui-table[lay-even] tr:nth-child(even),
 .layui-table tbody tr:hover,
 .layui-table-hover,
 .layui-table-click {
-    background-color: #f8f8f8
+  background-color: #f8f8f8;
 }
 
 .page {
-    display: block;
-    width: 100%;
-    text-align: right
+  display: block;
+  width: 100%;
+  text-align: right;
 }
 
 .data-list .layui-inline .layui-input {
-    width: 180px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    padding: 0
+  width: 180px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0;
 }
 
 .data-list .layui-inline .layui-input.layui-unselect {
-    width: 140px;
-    text-align: left;
-    padding-left: 10px;
+  width: 140px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .data-list .layui-inline .layui-form-select dl {
-    top: 29px
+  top: 29px;
 }
 
 .data-list .data {
-    min-height: .01%;
-    overflow-x: auto;
+  min-height: 0.01%;
+  overflow-x: auto;
 }
 
 .layui-table th {
-    text-align: center
+  text-align: center;
 }
 
-.layui-table[lay-size=sm] input {
-    height: 24px;
-    line-height: 24px;
-    border-width: 0
+.layui-table[lay-size="sm"] input {
+  height: 24px;
+  line-height: 24px;
+  border-width: 0;
 }
 
-.layui-table[lay-size=sm] input:hover {
-    border-width: 1px
+.layui-table[lay-size="sm"] input:hover {
+  border-width: 1px;
 }
 
 .layui-table .layui-input-sm {
-    text-align: center
+  text-align: center;
 }
 
-.layui-breadcrumb>* {
-    font-size: 12px
+.layui-breadcrumb > * {
+  font-size: 12px;
 }
 
 .text-1 {
-    color: #f39c12;
+  color: #f39c12;
 }
 
 .text-0 {
-    color: #777;
+  color: #777;
 }
 
 .layui-form-select dl dd.layui-this {
-    background: #01AAED
+  background: #01aaed;
 }
 
 .layui-table td.layadmin-carousel {
-    height: 185px!important;
-    background-color: #fff
+  height: 185px !important;
+  background-color: #fff;
 }
 
 .layadmin-carousel .layui-carousel-ind li {
-    background-color: #e2e2e2
+  background-color: #e2e2e2;
 }
 
 .layadmin-carousel .layui-carousel-ind li:hover {
-    background-color: #c2c2c2
+  background-color: #c2c2c2;
 }
 
 .layadmin-carousel .layui-carousel-ind li.layui-this {
-    background-color: #999
+  background-color: #999;
 }
 
 .layadmin-carousel .layui-carousel,
-.layadmin-carousel>*[carousel-item]>* {
-    background-color: #fff
+.layadmin-carousel > *[carousel-item] > * {
+  background-color: #fff;
 }
 
 .layadmin-carousel .layui-col-space10 {
-    margin: 0
+  margin: 0;
 }
 
 .layadmin-carousel .layui-carousel-ind {
-    position: absolute;
-    top: -41px;
-    text-align: right
+  position: absolute;
+  top: -41px;
+  text-align: right;
 }
 
 .layadmin-carousel .layui-carousel-ind ul {
-    background: none
+  background: none;
 }
 
 .avatar-add {
-    position: relative;
-    width: 373px;
-    height: 373px;
-    background-color: #F2F2F5
+  position: relative;
+  width: 373px;
+  height: 373px;
+  background-color: #f2f2f5;
 }
 
 .avatar-add .upload-img {
-    position: absolute;
-    left: 50%;
-    top: 35px;
-    margin: 0 0 0 -60px
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  margin: 0 0 0 -60px;
 }
 
 .avatar-add .img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 168px;
-    height: 168px;
-    margin: -50px 0 0 -84px;
-    border-radius: 100%;
-    overflow: hidden
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 168px;
+  height: 168px;
+  margin: -50px 0 0 -84px;
+  border-radius: 100%;
+  overflow: hidden;
 }
 
 .avatar-add .img img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .avatar-add .loading {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    padding: 0;
-    background-color: #000;
-    opacity: 0.5;
-    filter: Alpha(opacity=50);
-    background-image: url(../img/loading.gif);
-    background-position: center center;
-    background-repeat: no-repeat
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0;
+  background-color: #000;
+  opacity: 0.5;
+  filter: Alpha(opacity=50);
+  background-image: url(../img/loading.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .avatar-add p {
-    position: absolute;
-    top: 70px;
-    width: 100%;
-    margin-top: 10px;
-    font-size: 12px;
-    text-align: center;
-    color: #999
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #999;
 }
-.layui-layer .layui-container{
-    padding: 5px 15px;
+.layui-layer .layui-container {
+  padding: 5px 15px;
 }

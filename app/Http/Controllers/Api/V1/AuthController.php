@@ -25,14 +25,14 @@ class AuthController extends Controller
         return Y::json($this->respondWithToken($token));
     }
 
-    public function signUp(Request $request)
+    public function register(Request $request)
     {
         $post      = $request->only(['mobile', 'code', 'password', 'nickname']);
         $validator = Validator::make($post, [
             'mobile'   => 'required|unique:users|regex:/^1[34578][0-9]{9}$/',
             'code'     => 'required|size:6',
             'password' => 'required|alpha_num|size:32',
-            'nickname' => 'required|max:32'
+            'nickname' => 'required|max:32',
         ]);
         if ($validator->fails()) {
             return Y::json($validator->errors());
@@ -99,7 +99,7 @@ class AuthController extends Controller
         return [
             'access_token' => $token,
             'token_type'   => 'Bearer',
-            'expires_in'   => auth()->factory()->getTTL() * 60
+            'expires_in'   => auth()->factory()->getTTL() * 60,
         ];
     }
 }

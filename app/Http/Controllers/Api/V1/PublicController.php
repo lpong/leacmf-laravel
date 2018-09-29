@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Validator;
 class PublicController extends Controller
 {
 
+    public function init()
+    {
+        echo '1';
+    }
+
     /**
      * 发送短信
      * @param Request $request
@@ -27,7 +32,7 @@ class PublicController extends Controller
             'mobile'   => 'required|regex:/^1[34578][0-9]{9}$/',
             'mark'     => 'required|in:login,signUp,editMobile,forgetPassword',
             'sign'     => 'required|alpha_num|size:40',
-            'rand_str' => 'required|alpha_num|size:32'
+            'rand_str' => 'required|alpha_num|size:32',
         ]);
 
         //这儿写逻辑

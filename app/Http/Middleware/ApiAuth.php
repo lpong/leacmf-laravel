@@ -21,12 +21,13 @@ class ApiAuth
         if ($request->is(...$this->except) || (Auth::guard($guard)->check() && Auth::guard($guard)->user()->status == 1)) {
             return $next($request);
         }
-        return Y::json(1001, '用户验证失败，请重新登录');
+        return Y::json(401, '用户验证失败，请重新登录');
     }
 
     protected $except = [
+        'v1/init',
         'v1/auth/login',
-        'v1/auth/signUp',
-        'v1/sendSms'
+        'v1/auth/register',
+        'v1/sendSms',
     ];
 }

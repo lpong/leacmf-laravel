@@ -13,7 +13,7 @@ return [
 
     'flat' => [
         'length'     => 4,
-        'width'      => 260,
+        'width'      => 250,
         'height'     => 76,
         'quality'    => 100,
         'lines'      => 12,

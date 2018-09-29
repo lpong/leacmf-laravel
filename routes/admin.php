@@ -8,7 +8,7 @@
 Route::any('login', 'PublicController@login')->name('login');
 Route::any('logout', function () {
     auth()->logout();
-    return redirect()->route('logout');
+    return redirect()->route('login');
 })->name('logout');
 
 /**

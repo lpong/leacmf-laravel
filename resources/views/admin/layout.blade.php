@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>后台管理| {{ env('APP_NAME') }}</title>
+    <title>后台管理 | {{ env('APP_NAME') }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -40,13 +40,15 @@
             </li>
             @endrole
         </ul>
-        <ul class="layui-nav  layui-layout-right">
-            <li class="layui-nav-item" lay-unselect="">
-                <a lay-href="app/message/" layadmin-event="message">
+        <ul class="layui-nav layui-layout-right">
+            @role('super admin')
+            <li class="layui-nav-item" lay-unselect>
+                <a href="app/message/" layadmin-event="message">
                     <i class="layui-icon layui-icon-notice"></i>
                     <span class="layui-badge-dot"></span>
                 </a>
             </li>
+            @endrole
             <li class="layui-nav-item" lay-unselect>
                 <a href="javascript:;" class="user"><img src="{{ asset(Auth::user()->face) }}" class="layui-nav-img">{{ Auth::user()->nickname }} <i class="layui-icon layui-icon-more-vertical"></i></a>
                 <dl class="layui-nav-child">

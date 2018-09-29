@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the "web" routes for the application.
+     * Define the "backend" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
@@ -74,6 +74,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::middleware('api')->namespace($this->namespace . '\Api\\')->group(base_path('routes/v1.php'));
+        Route::middleware('api')->namespace($this->namespace . '\Api\\')->group(base_path('routes/api.php'));
     }
 }

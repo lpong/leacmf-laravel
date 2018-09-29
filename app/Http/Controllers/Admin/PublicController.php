@@ -33,7 +33,7 @@ class PublicController extends Controller
                 'captcha' => '验证码错误'
             ]);
             if ($validator->fails()) {
-                return Y::error($validator->errors());
+                return Y::error($validator->errors()->first());
             }
             unset($post['captcha']);
             if (Auth::guard('admin')->attempt($post, boolval($request->post('remember', '')))) {
