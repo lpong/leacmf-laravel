@@ -46,7 +46,7 @@ composer update
 * 更多功能暂时看源码吧，太忙，正式版未出之前不要用于正式环境，默认使用redis作为默认缓存，如未使用redis，在配置缓存中改成其它
 
 ## **界面截图**
-![1](/public/1.png "1")
+![1](/public/11.png "1")
 ![2](/public/2.png "2")
 ![3](/public/3.png "3")
 ![4](/public/4.png "4")
