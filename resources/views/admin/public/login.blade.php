@@ -45,7 +45,7 @@
                         <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="*">登 录</button>
                     </div>
                 </form>
-                <p>- <b style="font-family:Monaco,Consolas;font-weight:300"> LeaCMF</b>  后台开发框架 -</p>
+                <p>- 基于<span style="font-family:Monaco,Consolas;font-weight:300"> LeaCMF</span>  系统开发框架 -</p>
             </div>
         </div>
     </div>
